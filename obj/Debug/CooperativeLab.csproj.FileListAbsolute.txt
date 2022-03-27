@@ -1,0 +1,7 @@
+C:\Users\vitam\source\repos\OOP_test\OOP_test\bin\Debug\OOP_test.exe.config
+C:\Users\vitam\source\repos\OOP_test\OOP_test\bin\Debug\OOP_test.exe
+C:\Users\vitam\source\repos\OOP_test\OOP_test\bin\Debug\OOP_test.pdb
+C:\Users\vitam\source\repos\OOP_test\OOP_test\obj\Debug\CooperativeLab.csprojAssemblyReference.cache
+C:\Users\vitam\source\repos\OOP_test\OOP_test\obj\Debug\CooperativeLab.csproj.CoreCompileInputs.cache
+C:\Users\vitam\source\repos\OOP_test\OOP_test\obj\Debug\OOP_test.exe
+C:\Users\vitam\source\repos\OOP_test\OOP_test\obj\Debug\OOP_test.pdb

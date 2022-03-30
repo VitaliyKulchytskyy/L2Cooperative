@@ -4,7 +4,9 @@ namespace CooperativeLab
 {
     partial class Program
     {
-        static int[] FillArrayWithRandowValues(byte elemNum)
+        public static int[] GArray;     // Global Array
+        public static int[][] GJArray;  // Global Jagged Array
+        private static int[] FillArrayWithRandomValues(byte elemNum)
         {
             Random rndValue = new Random();           
             int[] array = new int[elemNum];
@@ -15,7 +17,7 @@ namespace CooperativeLab
             return array;
         }
 
-        static int[] FillArrayFromKeyboard(byte elemNum)
+        private static int[] FillArrayFromKeyboard(byte elemNum)
         {
             int[] array = new int[elemNum];
             byte i = 0;
@@ -40,7 +42,7 @@ namespace CooperativeLab
             return array;
         }
 
-        static int[][] FillJArrayWithRandowValues(byte rowNum, byte columnNum)
+        private static int[][] FillJArrayWithRandomValues(byte rowNum, byte columnNum)
         {
             Random rndValue = new Random();
             int[][] array = new int[rowNum][];
@@ -55,7 +57,7 @@ namespace CooperativeLab
             return array;
         }
 
-        static int[][] FillJArrayFromKeyboard(byte rowNum, byte columnNum)
+        private static int[][] FillJArrayFromKeyboard(byte rowNum, byte columnNum)
         {
             int[][] array = new int[rowNum][];
 

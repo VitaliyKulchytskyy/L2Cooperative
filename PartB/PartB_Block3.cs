@@ -40,9 +40,8 @@ namespace CooperativeLab
         }
         public override void ProcessData()
         {
-            if (Program.GJArray[0].Length <= 1)
+            if (Program.GJArray.Length <= 1 || Program.GJArray[0].Length == 0)
                 throw new Exception("NotEnoughValuesException");
-            
             
             AddRowAfterPairedIndex();
         }

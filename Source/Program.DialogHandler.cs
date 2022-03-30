@@ -84,15 +84,15 @@ namespace CooperativeLab
             QuestionHandler(" - Оберiть метод заповнення масива", ref fillMethod, 1);
 
             byte rowLength = 0;
-            QuestionHandler(" - Введiть кiлькiсть рядкiв", ref rowLength);
-
             if (block == 0)
-            {                            
+            {             
+                QuestionHandler(" - Введiть кiлькiсть елементiв рядка", ref rowLength);
                 GArray = (fillMethod == 0) ? FillArrayFromKeyboard(rowLength)
                     : FillArrayWithRandomValues(rowLength);
             }
             else
             {
+                QuestionHandler(" - Введiть кiлькiсть рядкiв", ref rowLength);
                 byte columnLength = 0;
                 QuestionHandler(" - Введiть кiлькiсть стовпчикiв", ref columnLength);
                 GJArray = (fillMethod == 0) ? FillJArrayFromKeyboard(rowLength, columnLength)

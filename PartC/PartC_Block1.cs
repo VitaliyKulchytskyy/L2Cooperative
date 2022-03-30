@@ -12,17 +12,17 @@ namespace CooperativeLab
             
             for (int i = 0; i < Program.GArray.Length; i++) // made for searching of Pair digit itself in hole array
             {
+                if(Program.GArray[i]==0)
+                    continue;
+                
                 if (Program.GArray[i]%2==0) // when it should be found
                 {
                     return i;
                 }
                 
             }
-
-            return -1;
+            throw new Exception("BadResizeException");
             
-
-           
 
             //return index; // the end
 
@@ -34,13 +34,11 @@ namespace CooperativeLab
             if (Program.GArray.Length == 0)
                 throw new Exception("NotEnoughValuesException");// end of exception
             
+            
             int pairElement = FindFirstPairDigitInRow(); // pair element 
             Console.WriteLine(pairElement);
-            if (pairElement == -1)
-                throw new Exception("BadResizeException"); // ISSUE
-                
             
-
+            
             for (int i = pairElement + 1; i < Program.GArray.Length; i++) //when to resize 
             {
                 Program.GArray[i - 1] = Program.GArray[i]; // how to resize

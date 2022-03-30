@@ -1,5 +1,3 @@
-using System;
-
 namespace CooperativeLab
 {
     partial class Program

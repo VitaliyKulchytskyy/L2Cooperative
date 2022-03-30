@@ -4,7 +4,7 @@ namespace CooperativeLab
 {
     partial class Program
     {
-        enum QuestionType
+        private enum QuestionType
         {
             SetBlock,
             ChangeArray,
@@ -13,8 +13,9 @@ namespace CooperativeLab
             Exit,
             ChooseStatement            
         }
-        const byte QuestionTypeLength = 6;
-        const byte BlockAmount = 2;
+
+        private const byte QuestionTypeLength = 6;
+        private const byte BlockAmount = 2;
         
         public static void QuestionHandler(string printQuestion, ref byte result, byte lBorder = 0)
         {            
@@ -48,6 +49,25 @@ namespace CooperativeLab
                     }
                 }
             } while (true);
+        }
+        
+        private static void PrintArray()
+        {
+            Console.Write("[Array]\n");
+            foreach (int i in Program.GArray)
+                Console.Write(i + "\t");
+            Console.WriteLine();
+        }
+
+        private static void PrintJArray()
+        {
+            Console.Write("[Jagged array]\n");
+            for(byte i = 0; i < Program.GJArray.Length; i++)
+            {
+                for (byte j = 0; j < Program.GJArray[i].Length; j++)
+                    Console.Write(Program.GJArray[i][j] + "\t");
+                Console.WriteLine();   
+            }
         }
 
         private static void SetBlock(ref byte blockId)
@@ -115,9 +135,9 @@ namespace CooperativeLab
         private static void PrintArrayHandler(byte variant, byte block, in Part[] parts)
         {
             if(block == 0)
-                parts[variant].Block[block].PrintArray();
+                PrintArray();
             else
-                parts[variant].Block[block].PrintJArray();
+                PrintJArray();
         }
 
         private static QuestionType GetNextCommand()

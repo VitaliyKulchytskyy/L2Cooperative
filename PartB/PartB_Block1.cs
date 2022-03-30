@@ -22,15 +22,15 @@ namespace CooperativeLab
         }
         public override void ProcessData()
         {
-            if (Program.GArray.Length <= 1)
+            if (Program.GArray.Length == 0)
                 throw new Exception("NotEnoughValuesException");
 
             byte k = 0, T = 0;
             
-            Program.QuestionHandler(" - З якого елменту K розпочати", ref  k, (byte)Program.GArray.Length);
+            Program.QuestionHandler(" - З якого елменту K розпочати", ref  k, (byte)(Program.GArray.Length - 1));
             Program.QuestionHandler(" - Скiльки елементiв T видалити", ref T);
             
-            Program.GArray =EraseArrayFrom(k, T);
+            Program.GArray = EraseArrayFrom(k, T);
         }
 
         public override byte GetBlockVariant() => m_variant;

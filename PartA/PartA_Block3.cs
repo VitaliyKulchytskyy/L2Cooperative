@@ -15,7 +15,7 @@ namespace CooperativeLab
             {
                 for(byte j = 0; j < Program.GJArray[i].Length; j++)
                 {
-                    if(min >= Program.GJArray[i][j])
+                    if(min > Program.GJArray[i][j])
                     {
                         min = Program.GJArray[i][j];
                         index = i;

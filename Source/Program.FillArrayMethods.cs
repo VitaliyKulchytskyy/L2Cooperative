@@ -6,6 +6,7 @@ namespace CooperativeLab
     {
         public static int[] GArray;     // Global Array
         public static int[][] GJArray;  // Global Jagged Array
+        
         private static int[] FillArrayWithRandomValues(byte elemNum)
         {
             Random rndValue = new Random();           

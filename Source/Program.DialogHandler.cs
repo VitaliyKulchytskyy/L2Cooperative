@@ -6,12 +6,12 @@ namespace CooperativeLab
     {
         private enum QuestionType
         {
-            SetBlock,
-            ChangeArray,
-            DoMethod,
-            PrintArray,
-            Exit,
-            ChooseStatement            
+            SetBlock = 0,
+            ChangeArray = 1,
+            DoMethod    = 2,
+            PrintArray  = 3,
+            Exit = 4,
+            ChooseStatement = 5            
         }
 
         private const byte QuestionTypeLength = 6;

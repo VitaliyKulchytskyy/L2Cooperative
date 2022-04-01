@@ -37,10 +37,7 @@ namespace CooperativeLab
             for (int i = Program.GJArray.Length - 2; i >= minRow; i--)
                 Program.GJArray[i + 1] = Program.GJArray[i];
 
-            int[] emptyRow = new int[Program.GJArray[0].Length];
-            Array.Clear(emptyRow, 0, emptyRow.Length);
-
-            Program.GJArray[minRow] = emptyRow;
+            Program.GJArray[minRow] = new int[Program.GJArray[0].Length];
         }
 
         public override byte GetBlockVariant() => m_variant;

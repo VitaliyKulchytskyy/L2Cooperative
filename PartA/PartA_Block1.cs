@@ -6,7 +6,7 @@ namespace CooperativeLab
     {
         private const byte m_variant = 10;
 
-        private byte IndexOfMinElement()
+        private byte IndexOfTheFistMinElement()
         {
             int min = Program.GArray[0];
             byte index = 0;
@@ -23,7 +23,7 @@ namespace CooperativeLab
             return index;
         }
 
-        private byte IndexOfMaxElement()
+        private byte IndexOfTheLastMaxElement()
         {
             int max = Program.GArray[0];
             byte index = 0;
@@ -45,8 +45,8 @@ namespace CooperativeLab
             if (Program.GArray.Length <= 1)
                 throw new Exception("NotEnoughValuesException");
 
-            byte min = IndexOfMinElement();
-            byte max = IndexOfMaxElement();
+            byte min = IndexOfTheFistMinElement();
+            byte max = IndexOfTheLastMaxElement();
             byte fBorder = Math.Min(min, max);
             byte lBorder = Math.Max(min, max);
 

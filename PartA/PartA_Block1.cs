@@ -40,22 +40,24 @@ namespace CooperativeLab
             return index;
         }
 
-        public override void ProcessData()    
+        public override void ProcessData()
         {
             if (Program.GArray.Length <= 1)
                 throw new Exception("NotEnoughValuesException");
 
             byte min = IndexOfTheFistMinElement();
             byte max = IndexOfTheLastMaxElement();
-            byte fBorder = Math.Min(min, max);
-            byte lBorder = Math.Max(min, max);
+            byte firstBorder = Math.Min(min, max);
+            byte lastBorder  = Math.Max(min, max);
 
-            if (Program.GArray[fBorder] == Program.GArray[lBorder])
+            if (Program.GArray[firstBorder] == Program.GArray[lastBorder])
                 throw new Exception("BadResizeException");
-
-            for (byte i = fBorder; i <= lBorder; i++)
-                Program.GArray[i - fBorder] = Program.GArray[i];
-            Array.Resize(ref Program.GArray, lBorder - fBorder + 1);
+            
+            byte i = (byte) (firstBorder + 1), j = lastBorder;
+            while (j < Program.GArray.Length)
+                Program.GArray[i++] = Program.GArray[j++];
+            
+            Array.Resize(ref Program.GArray, firstBorder + 1 + (Program.GArray.Length - lastBorder));
         }
 
         public override byte GetBlockVariant() => m_variant;

@@ -15,18 +15,18 @@ namespace CooperativeLab
         }
 
         private const byte QuestionTypeLength = 6;
-        private const byte BlockAmount = 2;
+        private const byte BlockAmount = 4;
         
-        public static void QuestionHandler(string printQuestion, ref byte result, byte lBorder = 0)
+        public static void QuestionHandler(string printQuestion, ref byte result, byte lastBorder = 0)
         {            
             do {
-                string separator = (lBorder != 0) ? $" [0..{lBorder}]: " : ": ";
+                string separator = (lastBorder != 0) ? $" [0..{lastBorder}]: " : ": ";
                 Console.Write(printQuestion + separator);
                 try
                 {
                     byte convertAnswer = byte.Parse(Console.ReadLine());                    
-                    if(lBorder != 0)
-                        if (!(convertAnswer <= lBorder))
+                    if(lastBorder != 0)
+                        if (!(convertAnswer <= lastBorder))
                             throw new Exception("WrongAnswer");
                     result = convertAnswer;
                     return;
@@ -44,7 +44,7 @@ namespace CooperativeLab
                     switch(questionException.Message)
                     {
                         case "WrongAnswer":
-                            Console.WriteLine($"[!] Введiть значення з дiапазону [0..{lBorder}].");
+                            Console.WriteLine($"[!] Введiть значення з дiапазону [0..{lastBorder}].");
                             break;
                     }
                 }
@@ -72,7 +72,12 @@ namespace CooperativeLab
 
         private static void SetBlock(ref byte blockId)
         {
-            Console.WriteLine("[Блок]\n[0] - 1 блок;\n[1] - 3 блок.");
+            //Console.WriteLine("[Блок]\n[0] - 1 блок;\n[1] - 3 блок.");
+            Func<byte, string> EndOfString = (i) => (i < BlockAmount - 1) ? ";" : ".";
+            
+            Console.WriteLine("[Блок]");
+            for(byte i = 0; i < BlockAmount; i++)
+                Console.WriteLine($"[{i}] - {i + 1} блок" + EndOfString(i));
             QuestionHandler(" - Введiть номер блоку", ref blockId, BlockAmount - 1); 
         }
 
@@ -114,9 +119,13 @@ namespace CooperativeLab
         private static void ProcessDataHandler(byte variant, byte block, in Part[] parts)
         {
             try
-            {                            
+            {
                 parts[variant].Block[block].ProcessData();
-            } 
+            }
+            catch (System.IndexOutOfRangeException)
+            {
+                Console.WriteLine("IndexOutOfRangeException");
+            }
             catch(Exception processDataException)
             {
                 switch (processDataException.Message)

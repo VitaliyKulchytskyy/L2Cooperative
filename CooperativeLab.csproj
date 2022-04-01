@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PartA\PartA_Block2.cs" />
+    <Compile Include="PartA\PartA_Block4.cs" />
+    <Compile Include="PartB\PartB_Block2.cs" />
+    <Compile Include="PartB\PartB_Block4.cs" />
+    <Compile Include="PartC\PartC_Block2.cs" />
+    <Compile Include="PartC\PartC_Block4.cs" />
     <Compile Include="Source\Part.cs" />
     <Compile Include="PartA\PartA_Block3.cs" />
     <Compile Include="PartA\PartA.cs" />
